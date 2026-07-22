@@ -5,8 +5,8 @@
     --system-font: sans-serif;
     --color-text: rgba(0, 0, 0, 1);
     --fsize-main: 18px;
-    --fweight-main: 400;
-    --fweight-title: 700;
+    --fweight-main: 410;
+    --fweight-title: 715;
     --line-height-text: 1.167;
     --line-height-text-botton: 0.9;
     --line-height-dialog: 1.5;
@@ -24,6 +24,8 @@
     --box-shadow-focus: 2px 2px 0px 0px rgba(0, 0, 0, 1);
     --heart-contour-color: rgba(0, 0, 0, 1);
     --heart-body-color: rgba(255, 0, 0, 1);
+    --mix-blend-color: #fff;
+    --border-color: #fff;
     display: flex;
     justify-content: center;
     align-content: center;

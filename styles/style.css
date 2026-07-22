@@ -292,12 +292,12 @@ svg {
 }
 
 .floppy {
-  width: 28px;
+  width: 21px;
 }
 
 .button__text,
 .floppy,
-.floppy-dialog {
+.floppy-dialog{
   position: relative;
   mix-blend-mode: difference;
   color: var(--accent-color-text);
@@ -370,14 +370,17 @@ svg {
   transform-origin: center;
 }
 
-dialog:not([open]) {
+
+
+dialog {
+  display: none;
   pointer-events: none;
   opacity: 0;
   position: fixed;
   inset: 0;
 }
 
-.dialog {
+dialog[open] {
   display: grid;
   max-inline-size: min-content;
   padding-inline-start: 42px;
@@ -390,10 +393,13 @@ dialog:not([open]) {
   outline: var(--outline-main);
   border: 0;
   transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .section-dialog {
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 
@@ -415,8 +421,20 @@ dialog::backdrop {
   border: var(--outline-main);
 }
 
-.floppy__image {
-  width: 21px;
+.floppy {
+  fill: var(--mix-blend-color);
+  inline-size: 21px;
+  block-size: 21px;
+  stroke: var(--mix-blend-color);
+  mix-blend-mode: difference;
+  z-index: 2;
+}
+
+.floppy-dialog {
+  fill: var(--border-color);
+  block-size: 39px;
+  inline-size: 39px;
+  stroke: var(--border-color);
 }
 
 @media (width > 375px) {
@@ -427,10 +445,6 @@ dialog::backdrop {
   .save {
     white-space: nowrap;
     flex-direction: row;
-  }
-
-  svg.floppy  {
-    width: 17px;
   }
 
   .dialog {
@@ -452,12 +466,31 @@ dialog::backdrop {
   padding: 122px 0;
 }
 
+.watermark {
+  font-family: var(--variable-font), var(--system-font);
+  opacity: 50%;
+  font-size: 0.875rem;
+  position: absolute;
+  inset-inline-end: clamp(1.5625rem, 0.4859rem + 1.1268vw, 1.5rem);
+  inset-block-start: clamp(1.5625rem, 1.4778rem + 0.0946vw, 1.563rem);
+  text-shadow:
+  -1px 0 var(--background-color), 
+  0 1px var(--background-color), 
+  1px 0 var(--background-color), 
+  0 -1px var(--background-color);
+  mix-blend-mode: hard-light;
+  z-index: 1;
+}
+
 .save {
     white-space: nowrap;
-    flex-direction: row;
   }
 
-  .floppy__image{
-    width: 28px;
-  }
+.floppy {
+  inline-size: 28px;
+  block-size: 28px;
 }
+}
+
+
+
